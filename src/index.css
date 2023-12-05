@@ -1,4 +1,5 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -7,9 +8,50 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: yellowgreen;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input {
+  border-radius: 8px;
+  border: none;
+  margin-left: 5px;
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(244, 186, 186);
+}
+
+button:hover {
+  background-color: rgb(52, 56, 139);
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form__box {
+  display: flex;
+  column-gap: 20px;
+}
+
+.contact__box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.contact__box>li {
+  display: flex;
+  column-gap: 5px;
 }
