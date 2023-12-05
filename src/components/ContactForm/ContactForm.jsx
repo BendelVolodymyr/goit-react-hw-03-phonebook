@@ -1,14 +1,33 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
+const LOCAL_KEY = 'inputValue';
+
 class ContactForm extends Component {
   state = {
     name: '',
     number: '',
+    id: '',
   };
 
+  componentDidMount() {
+    const getLocal = localStorage.getItem(LOCAL_KEY);
+    const validKey = getLocal === null;
+    if (!validKey) {
+      const parseLocal = JSON.parse(getLocal);
+      const { name, number } = parseLocal;
+      this.setState({ name: name, number: number });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.name !== prevState.name || this.number !== prevState.number) {
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(this.state));
+    }
+  }
+
   reset = () => {
-    this.setState({ name: '', number: '' });
+    this.setState({ name: '', number: '', id: '' });
   };
 
   handlerInputChange = event => {

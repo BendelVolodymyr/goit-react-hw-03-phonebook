@@ -6,6 +6,9 @@ import Filter from './Filter/Filter';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const LOCAL_KEY_CONTACTS = 'contacts';
+const LOCAL_KEY_FILTER = 'filter';
+
 const notifyOptions = {
   position: 'top-left',
   autoClose: 5000,
@@ -28,8 +31,45 @@ export class App extends Component {
     filter: '',
   };
 
-  handlerInputData = data => {
+  componentDidMount() {
+    const getLocalContacts = localStorage.getItem(LOCAL_KEY_CONTACTS);
+    const validKeyContact = getLocalContacts === null;
+
+    if (!validKeyContact) {
+      const parseLocalContacts = JSON.parse(getLocalContacts);
+      this.setState({ contacts: parseLocalContacts });
+    }
+
+    const getLocalFilter = localStorage.getItem(LOCAL_KEY_FILTER);
+    const validKeyFilter = getLocalFilter === null;
+
+    if (!validKeyFilter) {
+      const parseLocalFilter = JSON.parse(getLocalFilter);
+      this.setState({ filter: parseLocalFilter });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const validResultState =
+      this.state.contacts.length !== prevState.contacts.length;
+
+    const validFilter = this.state.filter.length !== prevState.filter.length;
+
+    if (validResultState) {
+      localStorage.setItem(
+        LOCAL_KEY_CONTACTS,
+        JSON.stringify(this.state.contacts)
+      );
+    }
+
+    if (validFilter) {
+      localStorage.setItem(LOCAL_KEY_FILTER, JSON.stringify(this.state.filter));
+    }
+  }
+
+  handlerResultChange(data) {
     const { name, number } = data;
+    console.log(name);
     const validInput = this.state.contacts.some(function (element) {
       return (
         element.name.toLowerCase().trim() === name.toLowerCase().trim() ||
@@ -44,6 +84,10 @@ export class App extends Component {
             contacts: [data, ...prevState.contacts],
           };
         });
+  }
+
+  handlerInputData = data => {
+    this.handlerResultChange(data);
   };
 
   handlerFilterChange = event => {
