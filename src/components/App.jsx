@@ -69,7 +69,6 @@ export class App extends Component {
 
   handlerResultChange(data) {
     const { name, number } = data;
-    console.log(name);
     const validInput = this.state.contacts.some(function (element) {
       return (
         element.name.toLowerCase().trim() === name.toLowerCase().trim() ||
