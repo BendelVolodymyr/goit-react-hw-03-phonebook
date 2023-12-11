@@ -53,7 +53,7 @@ export class App extends Component {
     const validResultState =
       this.state.contacts.length !== prevState.contacts.length;
 
-    const validFilter = this.state.filter.length !== prevState.filter.length;
+    // const validFilter = this.state.filter.length !== prevState.filter.length;
 
     if (validResultState) {
       localStorage.setItem(
@@ -62,9 +62,9 @@ export class App extends Component {
       );
     }
 
-    if (validFilter) {
-      localStorage.setItem(LOCAL_KEY_FILTER, JSON.stringify(this.state.filter));
-    }
+    // if (validFilter) {
+    //   localStorage.setItem(LOCAL_KEY_FILTER, JSON.stringify(this.state.filter));
+    // }
   }
 
   handlerResultChange(data) {

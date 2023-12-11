@@ -20,11 +20,11 @@ class ContactForm extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.name !== prevState.name || this.number !== prevState.number) {
-      localStorage.setItem(LOCAL_KEY, JSON.stringify(this.state));
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.name !== prevState.name || this.number !== prevState.number) {
+  //     localStorage.setItem(LOCAL_KEY, JSON.stringify(this.state));
+  //   }
+  // }
 
   reset = () => {
     this.setState({ name: '', number: '', id: '' });
