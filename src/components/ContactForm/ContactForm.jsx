@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
-const LOCAL_KEY = 'inputValue';
+// const LOCAL_KEY = 'inputValue';
 
 class ContactForm extends Component {
   state = {
@@ -11,13 +11,13 @@ class ContactForm extends Component {
   };
 
   componentDidMount() {
-    const getLocal = localStorage.getItem(LOCAL_KEY);
-    const validKey = getLocal === null;
-    if (!validKey) {
-      const parseLocal = JSON.parse(getLocal);
-      const { name, number } = parseLocal;
-      this.setState({ name: name, number: number });
-    }
+    // const getLocal = localStorage.getItem(LOCAL_KEY);
+    // const validKey = getLocal === null;
+    // if (!validKey) {
+    //   const parseLocal = JSON.parse(getLocal);
+    //   const { name, number } = parseLocal;
+    //   this.setState({ name: name, number: number });
+    // }
   }
 
   // componentDidUpdate(prevProps, prevState) {

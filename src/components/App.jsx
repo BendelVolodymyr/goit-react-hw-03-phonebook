@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LOCAL_KEY_CONTACTS = 'contacts';
-const LOCAL_KEY_FILTER = 'filter';
+// const LOCAL_KEY_FILTER = 'filter';
 
 const notifyOptions = {
   position: 'top-left',
@@ -40,13 +40,13 @@ export class App extends Component {
       this.setState({ contacts: parseLocalContacts });
     }
 
-    const getLocalFilter = localStorage.getItem(LOCAL_KEY_FILTER);
-    const validKeyFilter = getLocalFilter === null;
+    // const getLocalFilter = localStorage.getItem(LOCAL_KEY_FILTER);
+    // const validKeyFilter = getLocalFilter === null;
 
-    if (!validKeyFilter) {
-      const parseLocalFilter = JSON.parse(getLocalFilter);
-      this.setState({ filter: parseLocalFilter });
-    }
+    // if (!validKeyFilter) {
+    //   const parseLocalFilter = JSON.parse(getLocalFilter);
+    //   this.setState({ filter: parseLocalFilter });
+    // }
   }
 
   componentDidUpdate(prevProps, prevState) {
