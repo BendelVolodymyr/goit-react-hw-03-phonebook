@@ -40,8 +40,6 @@ export class App extends Component<{}, AppState> {
   };
 
   handlerResultChange = (data: Contact) => {
-    console.log(data);
-
     const { name, number, id } = data;
     const validInput = this.state.contacts.some(
       contact =>
