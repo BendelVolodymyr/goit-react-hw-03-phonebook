@@ -1,4 +1,6 @@
-const Filter = ({ title, onChange, value }) => {
+import { FilterProps } from 'types/Filter';
+
+const Filter: React.FC<FilterProps> = ({ title, onChange, value }) => {
   return (
     <label>
       {title !== undefined && <h3>{title}</h3>}

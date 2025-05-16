@@ -1,4 +1,6 @@
-const Section = ({ title, children }) => {
+import { SectionProps } from 'types/Section';
+
+const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
     <section className="section">
       <div>

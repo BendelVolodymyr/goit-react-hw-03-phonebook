@@ -1,6 +1,18 @@
 @import-normalize;
 /* bring in normalize.css styles */
 
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,7 +20,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: yellowgreen;
+  background: linear-gradient(
+    135deg,
+    #fdfbfb,
+    #ebedee,
+    #dbe6f6,
+    #c5796d,
+    #b7d4a8,
+    #a18cd1
+  );
+  background-size: 600% 600%;
+  animation: gradientBG 30s ease infinite;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+h3 {
+  margin: 0;
 }
 
 code {
@@ -18,29 +50,70 @@ code {
 
 input {
   border-radius: 8px;
+  padding-left: 5px;
   border: none;
-  margin-left: 5px;
 }
 
-button {
+.form__box-button {
+  width: 200px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 8px;
   border: none;
-  background-color: rgb(244, 186, 186);
+  background-color: #bfd0e1;
+  transition: all 0.3s ease;
+}
+
+.contact__box-button {
+  width: 100px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: none;
+  background-color: #bfd0e1;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: rgb(52, 56, 139);
+  background-color: #1d8ac1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form__box-label {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact__box-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .section {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0;
   padding: 20px;
 }
 
 .form__box {
   display: flex;
-  column-gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
 .contact__box {
@@ -51,7 +124,7 @@ button:hover {
   padding: 0;
 }
 
-.contact__box>li {
+.contact__box > li {
   display: flex;
   column-gap: 5px;
 }
